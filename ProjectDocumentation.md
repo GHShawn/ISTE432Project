@@ -1,11 +1,12 @@
 # ProjectDocumentation 
 
 ##  Team Members and Roles 
-	Tenzin:
+Tenzin:
 LinJian Chen: database table
 Shunyong Weng: Front-end 
 Winston Chang: 
-2. Background
+
+## Background
 Currently, there are refrigerators that have the capability to track the contents within itself. Their smart capabilities allow interfacing with the user to find out what food they have left and generate a shopping list if necessary. In addition, they are able to browse available recipes and broadcast instructions to the user.
 
 Some smart refrigerators have an app that allows the user to utilize the same features the refrigerators provide from their phone
@@ -14,11 +15,11 @@ These refrigerators are able to fetch recipes and aid the user in its creation. 
 
 They have the capability to share the recipes among family members, or social media.
 
-3. Project Description
+## Project Description
 
 We plan to design a more accessible application for people to utilize which will address their eating habits through the use of their smartphone. Consumption is a market that will never fail, specifically food consumption. Our goal is to create our application to become a tool for everyone to use. Whether it's someone who is a parent or someone who is a student at the college.
 
-4. Project Requirements
+## Project Requirements
 
 * Manual entry of what the user has in their refrigerator and kitchen, in terms of food ingredients, can be performed to search for food recipes that consist of what ingredients the user has. This search will be powered by a food recipe database API (see _Data Sources_ below). By utilizing the API, this will not only prevent misspellings during entry but provide the user a greater output of what food recipes he/she chooses to follow.
 
@@ -30,11 +31,11 @@ We plan to design a more accessible application for people to utilize which will
 
 * To add a social aspect to the application, the user can share their favorite recipes to others that they are connected to. Users may also potentially customize given recipes and post it themselves for others to view and follow.
 
-5. Business Rules
+## Business Rules
  	ERD
-6. Technologies Used - 
+## Technologies Used - 
 The application will be developed in Javascript, HTML, CSS, JQuery, API.
-7. Timeline
+## Timeline
 
 
-8. Design pattern
+## Design pattern
