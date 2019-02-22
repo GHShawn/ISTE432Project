@@ -2,9 +2,12 @@
 
 ##  Team Members and Roles 
 Tenzin:
+
 LinJian Chen: database table
+
 Shunyong Weng: Front-end 
-Winston Chang: 
+
+Winston Chang: Back-end
 
 ## Background
 Currently, there are refrigerators that have the capability to track the contents within itself. Their smart capabilities allow interfacing with the user to find out what food they have left and generate a shopping list if necessary. In addition, they are able to browse available recipes and broadcast instructions to the user.
@@ -39,3 +42,44 @@ The application will be developed in Javascript, HTML, CSS, JQuery, API.
 
 
 ## Design pattern
+
+* Composite Pattern
+* Proxy Pattern
+* MVC Pattern
+
+## Classes
+```php
+// identity
+class User {
+    private $id;
+    private $email;
+    private $username;
+}
+// user data
+class ShoppingList {
+    private $id;
+    private $user;
+    private $items = array();
+}
+
+class ShoppingListItem {
+    private $id;
+    private $list_id;
+    private $ingredient;
+}
+// composite pattern
+interface IFood {
+    
+}
+
+class Ingredient implements IFood {
+    private $id;
+    private $name;
+}
+
+class Recipe implements IFood {
+    private $id;
+    private $name;
+    private $ingredients = array();
+}
+```
