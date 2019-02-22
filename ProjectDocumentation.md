@@ -47,15 +47,16 @@ We plan to design a more accessible application for people to utilize which will
 * A user will receive recipes that he/she may not have all the ingredients to. 
 * A user will receive the option to add any of the ingreidents that they are missing to their shopping list. 
 * A user does not need to record any ingredients that has been labeled as bought on their shopping list. 
+* A user will recieve a recipe of the day for the exposure for the future. 
 
-* A recipe will have ingredients available as well as cooking instructions. 
+* A recipe will have what ingredients are required as well as the cooking instructions. 
 * A recipe will not provide any visualization regarding cooking instructions. 
 * A recipe cannot be labeled as started without the user having all the required ingredients. 
-* We can offer any recipes to the user as long as they have any amount of the required ingredients recorded in their inventory. 
+* We can offer any recipes to the user as long as they have any the required quantity of the ingredients recorded in their inventory. 
 
 ## Technologies Used 
 ---
-The application will be developed in Javascript, HTML, CSS, JQuery, API.
+The application will be developed in Javascript, HTML, CSS, JQuery, API, PHP. 
 
 ## Timeline
 ---
@@ -124,4 +125,3 @@ class ShoppingListItem {
     private $list_id;
     private $ingredient;
 }
-// composite pattern
