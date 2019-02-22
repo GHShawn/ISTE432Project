@@ -42,16 +42,15 @@ We plan to design a more accessible application for people to utilize which will
 ## Business Rules
 ---
 
-* A user with any food allergies will recieve recipes that exclude the allergies.
+* A user with any food allergies will receive recipes that exclude the allergies.
 * A user with ingredients in their inventory will recieve recipes that include any amount of those ingredients. 
 * A user will receive recipes that he/she may not have all the ingredients to. 
-* A user will recieve the option to add any of the ingreidents that they are missing to their shopping list. 
+* A user will receive the option to add any of the ingreidents that they are missing to their shopping list. 
 * A user does not need to record any ingredients that has been labeled as bought on their shopping list. 
 
 * A recipe will have ingredients available as well as cooking instructions. 
 * A recipe will not provide any visualization regarding cooking instructions. 
-* A recipe cannot be labeld as started without the user having all the required ingreidents. 
-
+* A recipe cannot be labeled as started without the user having all the required ingredients. 
 * We can offer any recipes to the user as long as they have any amount of the required ingredients recorded in their inventory. 
 
 ## Technologies Used 
