@@ -60,7 +60,7 @@ The application will be developed in Javascript, HTML, CSS, JQuery, API, PHP.
 
 ## Timeline
 ---
-Timeline Share Link: [https://drive.google.com/open?id=1g-By5vYxMUW3bw_UL-sadLKzTPoUb330jXX7bXr6h2o](https://drive.google.com/open?id=1g-By5vYxMUW3bw_UL-sadLKzTPoUb330jXX7bXr6h2o)
+
 What we need to get done. 
 
 Back End - 
@@ -81,6 +81,7 @@ Database -
 	* Creating the foundation of all the database table required for the internal API. 	
 	* Making any improvements required for the table. Any changes in the attributes/table. 
 
+[Timeline Share Link](https://drive.google.com/open?id=1g-By5vYxMUW3bw_UL-sadLKzTPoUb330jXX7bXr6h2o)
 
 ## Design pattern
 ---
