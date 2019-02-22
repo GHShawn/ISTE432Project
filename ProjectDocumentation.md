@@ -64,17 +64,20 @@ The application will be developed in Javascript, HTML, CSS, JQuery, API, PHP.
 What we need to get done. 
 
 Back End - 
+
 	* Working on the proxy and integrating the external API. 
 	* Working on the internal API. ** working with Database. 
 	
 	
 
 Front End - 
+
 	* Potential Web Design for how the website will look.  ** completed 
 	* Improving Web Design for how it looks. 
 	* Determining the functionalities required for the project.  **working with BackEnd
 
 Database - 
+
 	* Creating the foundation of all the database table required for the internal API. 	
 	* Making any improvements required for the table. Any changes in the attributes/table. 
 
