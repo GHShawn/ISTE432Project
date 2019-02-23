@@ -65,20 +65,20 @@ What we need to get done.
 
 Back End - 
 
-	* Working on the proxy and integrating the external API. 
-	* Working on the internal API. ** working with Database. 
+	* Working on the proxy and integrating the external API. ( By March 3, 2019) 
+	* Working on the internal API. ** working with Database. ( By March 3, 2019) 
 	
 	
 
 Front End - 
 
 	* Potential Web Design for how the website will look.  ** completed 
-	* Improving Web Design for how it looks. 
+	* Improving Web Design for how it looks. ( By March 3, 2019) 
 	* Determining the functionalities required for the project.  **working with BackEnd
 
 Database - 
 
-	* Creating the foundation of all the database table required for the internal API. 	
+	* Creating the foundation of all the database table required for the internal API. ( By March 1, 2019) 
 	* Making any improvements required for the table. Any changes in the attributes/table. 
 
 [Timeline Share Link](https://drive.google.com/open?id=1g-By5vYxMUW3bw_UL-sadLKzTPoUb330jXX7bXr6h2o)
