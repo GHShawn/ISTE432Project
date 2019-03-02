@@ -84,7 +84,28 @@ Database -
 [Timeline Share Link](https://drive.google.com/open?id=1g-By5vYxMUW3bw_UL-sadLKzTPoUb330jXX7bXr6h2o)
 
 ## Layering 
+Presentation - 
 
+	* Index.php - Well designed UI to display user login page and detailed about the recipe.
+	* RecipeDetail.php - Displays the user the specific recipe selected. 
+	* RecipeList.php - Displays the possible recipes the user can work on. 
+	* ShoppingList.php - Display the ingredients that are needed to be purchased for any potential recipe.
+
+Application - 
+
+	* Authentication.class - Takes in the input from the presentation and sends it to the Business layer which will allow logins of the different users. 
+	* RecipeDetail.class - Every user will have differently detailed about the recipe information. Grabs the data from the RecipeAPI.class
+	
+Business - 
+
+	* Authentication.class - Grab data from the MySQL table ( ‘authentication’) to verify loggings. 
+	* RecipeAPI.class - Interacts with the API. Will grab the list of recipes one can make with the given ingredients and will grab the details related to the chosen recipe. Will utilize the data from the tables in the MySQL - inventory table. 
+
+Data - 
+
+	* MySQL.class - Obtained MySQL database class allowing the application to connect with the database and it also takes in the SQL statement for retrieving or updating information from the database.
+	* ExceptionHandler.class - It will handling the exception for SQL statement errors and connection error. 
+	
 ## Design pattern
 ---
 
