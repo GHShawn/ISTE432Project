@@ -169,3 +169,11 @@ class ShoppingListItem {
     private $list_id;
     private $ingredient;
 }
+```
+
+
+# Exceptions
+- Database connectivity error
+- When API returns recipe whose ingredients does not match user's request
+- API doesn't work?
+- Ingredient does not exist
