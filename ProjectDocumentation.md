@@ -174,6 +174,14 @@ class ShoppingListItem {
 
 # Exceptions
 - Database connectivity error
+  - User will not know or be informed of this error
+  - User will be acknowledge of a downtime or internal error, no specifics
 - When API returns recipe whose ingredients does not match user's request
+  - Determine why the recipe shows up
+  - Calculate if user should see recipe anyways
 - API doesn't work?
+  - Declare downtime
 - Ingredient does not exist
+  - Determine API behavior for invalid ingredient
+  - Likely - ignore ingredient and continue as normal
+  - Notify user of invalid ingredient (sanitation?)
