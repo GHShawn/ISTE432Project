@@ -116,9 +116,9 @@ Data -
 * API doesn't work?
   - Declare downtime
 * Ingredient does not exist
-  1- Determine API behavior for invalid ingredient
-  2- Likely - ignore ingredient and continue as normal
-  3- Notify user of invalid ingredient (sanitation?)
+  1) Determine API behavior for invalid ingredient
+  2) Likely - ignore ingredient and continue as normal
+  3) Notify user of invalid ingredient (sanitation?)
   
 ```
 
