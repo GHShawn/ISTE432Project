@@ -271,4 +271,6 @@ class ShoppingListItem {
 }
 ```
 
-
+## Refactor
+* Our database initialisation script has been updated to work with Postgres Database
+* Database functions in [UserManager.class.php](https://github.com/Txd5857/ISTE432Project/blob/master/business/UserManager.class.php) reflected to work with Postgres
