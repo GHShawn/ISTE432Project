@@ -5,21 +5,20 @@ include_once "../models/User";
 class UserManager {
 
     function __construct() {
-        $db = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE, DB_PORT);
+        $db = pg_connect(sprintf('%s user=%s password=%s %s %s', DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE, DB_PORT);
     }
 
     function loginUser($user, $pass) {
-        $query = "SELECT user_id, email, userName FROM user WHERE email LIKE ? AND pswd LIKE ?";
-        $stmt = $this->db->prepare($query);
-        // Encrypted given password should match encrypted password in db
-        $stmt->bind_param("ss", $user, encryptPassword($pass));
-
-        $stmt->execute();
-        $stmt->store_result();
-        if ($stmt->num_results === 0)
+        $query = "SELECT user_id, email, userName FROM user WHERE email LIKE $1 AND pswd LIKE $2";
+        $stmt = pg_prepare($this->db, "selectUser", $query);
+        
+        $result = pg_execute($this->db, "selectUser", array($user, encryptPassword($pass)));
+        if (pg_num_rows($result) === 0)
             return false;
-        $stmt->bind_result($id, $email, $name); 
-        $stmt->fetch();
+        
+        $id = $data->user_id;
+        $email = $data->email;
+        $name = $data->userName;
 
         $stmt->close();
 
@@ -27,14 +26,13 @@ class UserManager {
     }
 
     function createUser(User $user, $password) {
-        $query = "INSERT INTO user (email, pswd, userName) VALUES (?, ?, ?)";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("sss", $user->email, encryptPassword($password), $user->username);
-
-        $stmt->execute();
-        $user_id = $stmt->insert_id;
+        $query = "INSERT INTO user (email, pswd, userName) VALUES ($1, $2, $3) RETURNING id";
+        $stmt = pg_prepare($this->db, "createUser", $query);
+        
+        $result = pg_execute($this->db, "createUser", array($user->email, encryptPassword($password), $user->username));
+        $row = pg_fetch_row($result);
         $stmt->close();
-        return $user_id;
+        return $row['0'];
     }
 
 
