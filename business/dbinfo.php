@@ -1,7 +1,7 @@
 <?php
-
-define('DB_HOST', '127.0.0.1');
-define('DB_PORT', 3306);
-define('DB_DATABASE', 'recipedb');
-define('DB_USERNAME', '');
-define('DB_PASSWORD', '');
+define('DB_HOST', 'host = 68.183.120.235');
+define('DB_PORT', "port = 5432");
+define('DB_DATABASE', 'dbname = mydb');
+define('DB_USERNAME', 'admin');
+define('DB_PASSWORD', 'coffeetea');
+?>
