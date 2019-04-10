@@ -227,6 +227,7 @@ class Recipe implements IFood {
     private $ingredients = array();
 }
 ```
+
 ### Proxy Pattern
 * We use the proxy pattern to provide an interface for an external API to our clients
 * Rather than have our client interact with the extern API directly, they would interact using our API
@@ -274,3 +275,5 @@ class ShoppingListItem {
 ## Refactor
 * Our database initialisation script has been updated to work with Postgres Database
 * Database functions in [UserManager.class.php](https://github.com/Txd5857/ISTE432Project/blob/master/business/UserManager.class.php) reflected to work with Postgres
+* We switched the API call to a different API url for when grabbing the instructrions for the recipe. 
+* The original API call just got a paragraph of what the instructions are, while the new API call will grab the breakdown of the instructions which includes step description, the duration of the step, ingredients required, and equipment required. 
