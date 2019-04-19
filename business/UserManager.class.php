@@ -4,8 +4,12 @@ include_once "../models/User";
 
 class UserManager {
 
+    private $db = NULL;
+
     function __construct() {
-        $db = pg_connect(sprintf('%s user=%s password=%s %s %s', DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE, DB_PORT);
+        $db = pg_connect(DB_HOST.' '.DB_PORT.' '.DB_DATABASE.' '.DB_USERNAME.' '.DB_PASSWORD)
+                or die("Could not connect to server\n");
+        $this->db = $db;
     }
 
     function loginUser($user, $pass) {
