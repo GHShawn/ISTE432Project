@@ -277,3 +277,7 @@ class ShoppingListItem {
 * Database functions in [UserManager.class.php](https://github.com/Txd5857/ISTE432Project/blob/master/business/UserManager.class.php) reflected to work with Postgres
 * We switched the API call to a different API url for when grabbing the instructrions for the recipe. 
 * The original API call just got a paragraph of what the instructions are, while the new API call will grab the breakdown of the instructions which includes step description, the duration of the step, ingredients required, and equipment required. 
+
+## Testing
+
+
