@@ -280,7 +280,7 @@ class ShoppingListItem {
 
 ## Testing
 * we test recipe class
-'''php
+```php
 <?php
 use PHPUnit\Framework\TestCase;
 class RecipeTest extends TestCase {
@@ -301,5 +301,5 @@ class RecipeTest extends TestCase {
     }
 } 
 ?>
-'''
+```
 
