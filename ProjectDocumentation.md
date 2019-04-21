@@ -279,5 +279,27 @@ class ShoppingListItem {
 * The original API call just got a paragraph of what the instructions are, while the new API call will grab the breakdown of the instructions which includes step description, the duration of the step, ingredients required, and equipment required. 
 
 ## Testing
-
+* we test recipe class
+'''php
+<?php
+use PHPUnit\Framework\TestCase;
+class RecipeTest extends TestCase {
+    public function testCanBeCreated() {
+        $this->assertInstanceOf(
+            Recipe::class,
+            new Recipe(123, "testRecipe")
+        );
+    }
+    public function testCannotBeCreatedFromInvalidParameters() {
+        $this->assetInstanceOf(Recipe::class, $test = new Recipe("asdf", "asdf"));
+        $this->assertIsInt($test->getId());
+        $this->assetIsString($test->getName());
+    }
+    public function testCanAddIngredients() {
+        $recipe = new Recipe(123, "testRecipe");
+        $this->assertTrue($recipe.addIngredient(new Ingredient(321, "testIngredient")));
+    }
+} 
+?>
+'''
 
