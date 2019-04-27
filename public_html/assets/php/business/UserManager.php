@@ -43,6 +43,7 @@ class UserManager
         }
     }
 
+    // https://stackoverflow.com/a/54686050
     function createUser($email, $username, $pswd)
     {
         $query =
