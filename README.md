@@ -38,14 +38,7 @@ http://68.183.120.235/~lxc9094/
 ```
 
 ### Deployment
-Your have options to deploying with our project
-#### User account
-- Create new user account (The new account information will store in our database)
-- Login your user account (The user account will contain your data)
-#### The main function
-- Search for new recipe
-- Checking your refrigerator
-- Create your shopping list
+
 
 ### Built With
 * [HTML](https://www.w3schools.com/html/html_intro.asp) - Standard markup language for creating Web pages
