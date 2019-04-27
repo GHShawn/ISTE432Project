@@ -11,7 +11,10 @@
         $username = htmlentities(strip_tags(trim( $_POST["username"])));
         $password = htmlentities(strip_tags(trim( $_POST["password"])));
         $conn = new UserManager();
-        $conn->loginUser($username,$password);
+        $user = $conn->loginUser($username,$password);
+        if ($user instanceof  User) {
+            header('location: main_info.php');
+        }
     }
 ?>
 <!doctype html>
@@ -37,6 +40,7 @@
 		</label>
 	  </div>
 	  <button class="form-control" name="login" id="submitJB" type="submit">Sign in</button>
+          <span><?php if (isset($user)) echo $user ?></span>
 	   </form>
 
   </body>

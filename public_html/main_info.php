@@ -26,7 +26,6 @@
 </form>
 
 <div class="display"><img src="assets/images/d1.jpg" alt="d1"></div>
-
 <div id="myNav" class="overlay">
     <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><-->
     <div class="overlay-content">

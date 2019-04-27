@@ -12,8 +12,12 @@
         $signupEmail = htmlentities(strip_tags(trim( $_POST["signup-email"])));
         $signupPassword = htmlentities(strip_tags(trim( $_POST["signup-password"])));
         $reSignupPassword = htmlentities(strip_tags(trim( $_POST["re-signup-password"])));
-        $conn = new UserManager();
-        $conn->createUser($signupEmail,$signupUsername,$signupPassword);
+        if ($signupPassword == $reSignupPassword) {
+            $conn = new UserManager();
+            $conn->createUser($signupEmail, $signupUsername, $signupPassword);
+        } else {
+            $error = 'Passwords do not match';
+        }
     }
 
 ?>
@@ -31,16 +35,17 @@
     <h1 id="margincenter">PLEASE SIGN UP</h1>
 
     <label for="username" class="box-only">User Name</label>
-    <input type="username" name="signup-username" id="newUserName"class="form-control" placeholder="User Name" value="usernmae" required autofocus>
+    <input type="username" name="signup-username" id="newUserName"class="form-control" placeholder="User Name" value="<?php if (isset($_POST['signup-username'])) echo $_POST['signup-username'] ?>" required autofocus>
 
     <label for="email" class="box-only">Password</label>
-    <input type="email"  name="signup-email" class="form-control" id="newEmail" placeholder="Email" value="emial@gmail.com" required >
+    <input type="email"  name="signup-email" class="form-control" id="newEmail" placeholder="Email" value="<?php if (isset($_POST['signup-username'])) echo $_POST['signup-email'] ?>" required >
 
     <label for="password" class="box-only">Password</label>
-    <input type = "password" name="signup-password"  id= "1stpassword" class="form-control" placeholder="Password" value="testPassword" required />
+    <input type = "password" name="signup-password"  id= "1stpassword" class="form-control" placeholder="Password" value="" required />
 
     <label for="password" class="box-only">Password</label>
-    <input type = "password" name = "re-signup-password" id='2ndpassword' class="form-control" placeholder="confirm password" value="testPassword2" required />
+    <input type = "password" name = "re-signup-password" id='2ndpassword' class="form-control" placeholder="Confirm password" value="" required />
+    <span><?php if (isset($error)) echo $error; ?></span>
     <button class="form-control" name="register" type="submit">Sign up</button>
     <a id='switchLogin' onclick="switchLogin();">Switch LOGIN</a>
 </form>
