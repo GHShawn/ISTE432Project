@@ -26,7 +26,7 @@ class UserManager
 
         $count = pg_num_rows($result);
         if ($count == 1) {
-            header("location: main_info.php");
+            // header("location: main_info.php");
             $row = pg_fetch_row($result);
             $id = $row[0];
             $email = $row[1];
