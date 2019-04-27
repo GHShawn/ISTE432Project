@@ -1,6 +1,8 @@
-# Team Project: 
+# Project name
+## Getting Started
+This instruction will introduce our project and how deploye in your host
 
-## Team Members and Roles
+### Team Members and Roles
 - Tenzin, Back-end
 
 - LinJian Chen, Database
@@ -9,10 +11,10 @@
 
 - Winston Chang, Back-end
 
-## Prerequisites
+### Prerequisites
 - An individual host
 
-## Installing
+### Installing
 There are __public_html__ directory in repository
 
 1. Download repository Zip
@@ -23,7 +25,7 @@ There are __public_html__ directory in repository
 6. Drop and drag public_html dirctory for repository to your host(remember the path)
 7. Finished
 
-## Running the tests
+### Running the tests
 __You can test this project on your host__ 
 > following code to open your website
 ```
@@ -35,9 +37,9 @@ http://yourhostname/directoryPath/public_html
 http://68.183.120.235/~lxc9094/
 ```
 
-## Deployment
+### Deployment
 
-## Built With
+### Built With
 * [HTML](https://www.w3schools.com/html/html_intro.asp) - Standard markup language for creating Web pages
 * [JavaScript](https://www.w3schools.com/js/) - Hypertext Preprocessor for web development.
 * [PHP](https://en.wikipedia.org/wiki/PHP) - Standard markup language for creating Web pages
