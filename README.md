@@ -38,7 +38,8 @@ http://68.183.120.235/~lxc9094/
 ```
 
 ### Deployment
-
+In order to deploy our project, you need an host
+- Apache server
 
 ### Built With
 * [HTML](https://www.w3schools.com/html/html_intro.asp) - Standard markup language for creating Web pages
