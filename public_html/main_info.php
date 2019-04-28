@@ -1,4 +1,5 @@
 <?php
+   define('ROOT','assets/php/');
    $page="mainpage";
    include_once(ROOT . 'models/header.php');
 ?>
@@ -16,5 +17,8 @@
 <div class="RecommendRecipe"><img src="assets/images/rr3.jpg" alt="rr3"><p>Roboto has a dual nature. It has a mechanical skeleton and the forms are largely geometric. At the same time, the font features friendly and open curves. </p></div>
 </div>
 
-<?php include_once(ROOT . 'models/footer.php');?>
+<?php 
+   define('ROOT','assets/php/'); 
+   include_once(ROOT . 'models/footer.php');
+?>
 
