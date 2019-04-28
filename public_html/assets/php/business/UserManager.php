@@ -23,7 +23,9 @@ class UserManager
         $query = 'SELECT user_id, email, username, pswd FROM USERS WHERE username=$1';
         $stmt = pg_prepare($this->conn, "selectUser", $query);
         $result = pg_execute($this->conn, "selectUser", array($user)); //array($user, encryptPassword($pass)));
-
+        error_log('helo');
+        printf('hello');
+        print('hello');
         $count = pg_num_rows($result);
         if ($count == 1) {
             // header("location: main_info.php");
