@@ -1,4 +1,4 @@
-# Project name
+# ISTE 432 Project
 ## Getting Started
 This instruction will introduce our project and how deploye in your host
 
