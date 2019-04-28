@@ -17,9 +17,9 @@
 </div>
 
 
-<form action="/action_page.php">
+<form action="/action_page.php" method="post">
     <input type="text" placeholder="Search by ingredients..">
-    <input type="submit" value="Add">
+    <input type="submit" name="button" value="Add">
     <input type="text" placeholder="Exclude by ingredients..">
     <input type="submit" value="Delete">
     <input type="submit" value="Search">
