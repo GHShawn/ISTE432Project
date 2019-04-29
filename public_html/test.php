@@ -17,7 +17,8 @@ function createcard($img, $name, $used, $missused, $id)
                 <div class="card" style="height: 60%">
                     <img class="card-img-top" src="'. $img . '">
                     <div class="card-block">
-                        <h4 class="card-title mt-3">' . $name . '</h4>
+                        <h6 class="card-title mt-3 center" style="padding:5%;text-align: center">' . $name . '</h6>
+                        <hr>
                         <div class="meta">
                             <a>Used Ingredients: ' . $used .'</a>
                             <a>Missed Ingredients: '. $missused .'</a>
