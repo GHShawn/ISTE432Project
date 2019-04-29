@@ -1,24 +1,144 @@
 <?php
-   define('ROOT','assets/php/');
-   $page="mainpage";
-   include_once(ROOT . 'models/header.php');
+/**
+ * Created by PhpStorm.
+ * User: tenzinkhedup
+ * Date: 2019-04-27
+ * Time: 19:21
+ */
+define('ROOT','assets/php/');
+include_once(ROOT . 'business/RecipeManager.php');
+include_once(ROOT . 'business/IngredientManager.class.php');
+function createcard($img, $name, $used, $missused, $id)
+{
+    $div = '
+        <div class="col-sm-3 col-md-3 col-lg-3 mt-4" style="float:left">
+                <div class="card" style="height: 60%">
+                    <img class="card-img-top" src="'. $img . '">
+                    <div class="card-block">
+                        <h6 class="card-title mt-3 center" style="padding:5%;text-align: center">' . $name . '</h6>
+                        <hr>
+                        <div class="meta">
+                            <a>Used Ingredients: ' . $used .'</a>
+                            <a>Missed Ingredients: '. $missused .'</a>
+                        </div>
+                    </div>
+                    <div class="card-footer" style="bottom:0">
+                        <small>View Recipe</small>
+                        <button class="btn btn-secondary float-right btn-sm" value="'.$id.'">show</button>
+                    </div>
+                </div>
+
+            </div>';
+    return $div;
+}
+function buildrec($output){
+    foreach($output as $key=>$value){
+        $img = $value['RecipeImage'];
+        $used = $value['IngredientsUsedCount'];
+        $missued = $value['MissedIngredientsCount'];
+        $id = $value['RecipeID'];
+        $name = $value['Title'];
+        $div = createcard($img,$name,$used,$missued,$id);
+        echo $div;
+    }
+}
+$test1 = new IngredientManager();
+//
+////$result = $test1->insertShoppingList('Smoked Salmon Scrambled Eggs');
+//$result = $test1->purchaseShoppingList();
+//
+////echo json_encode($result, JSON_PRETTY_PRINT);
+//echo json_encode($result, JSON_PRETTY_PRINT);
+$test = new RecipeManager();
+///getALL Recipes
+$result = $test->CallAPI("get",$test->createRecipeAPIcall());
+//echo $result;
+$json = json_decode($result, true);
+$food = $test->APIRecipesParser($json);
+//echo json_encode($food, JSON_PRETTY_PRINT);
+//get IndividualRecipe
+$result = $test->CallAPI("get",$test->grabRecipeData(513654));
+//echo $result;
+$json = json_decode($result,true);
+//$food = $test->APIRecipeParser($json);
+//$j = json_encode($food, JSON_PRETTY_PRINT);
 ?>
-<div class="display"><img src="assets/images/d1.jpg" alt="d1"></div>
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script src="assets/js/javascript.js"></script>
+<!-- Remember to include jQuery :) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<!-- bootstrap -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
 
-<div class="recipeCategory"><img src="assets/images/cr1.jpg" alt="cr1"><p>Chicken Recipe</p></div>
-<div class="recipeCategory"><img src="assets/images/br1.jpg" alt="br1"><p>Beef Recipe</p></div>
-<div class="recipeCategory"><img src="assets/images/sr1.jpeg" alt="sr1"><p>Seafood Recipe</p></div>
-<div class="recipeCategory"><img src="assets/images/vr1.jpg" alt="vr1"><p>Vegetable Recipe</p></div>
-
-<div class="Recommend">
-<h1>Daily Recommend Recipes</h1>
-<div class="RecommendRecipe"><img src="assets/images/rr1.jpg" alt="rr1"><p>Roboto has a dual nature. It has a mechanical skeleton and the forms are largely geometric. At the same time, the font features friendly and open curves. </p></div>
-<div class="RecommendRecipe"><img src="assets/images/rr2.jpg" alt="rr2"><p>Roboto has a dual nature. It has a mechanical skeleton and the forms are largely geometric. At the same time, the font features friendly and open curves. </p></div>
-<div class="RecommendRecipe"><img src="assets/images/rr3.jpg" alt="rr3"><p>Roboto has a dual nature. It has a mechanical skeleton and the forms are largely geometric. At the same time, the font features friendly and open curves. </p></div>
+<div id="inventory" class="modal">
+  <p>Thanks for clicking. This is your inventory.</p>
+  <a href="#" rel="modal:close">Close</a>
 </div>
 
-<?php 
-   define('ROOT','assets/php/'); 
-   include_once(ROOT . 'models/footer.php');
-?>
+<div id="shopping" class="modal">
+  <p>Thanks for clicking. This is your shopping list.</p>
+  <button>Add</button>
+  <button>Order</button>
+  </br>
+</div>
 
+<div id="profile" class="modal">
+  <p>Thanks for clicking. This is your profile.</p>
+  <a href="#" rel="modal:close">Close</a>
+</div>
+
+<div id="help" class="modal">
+  <p>Thanks for clicking. This is your help section.</p>
+  <a href="#" rel="modal:close">Close</a>
+</div>
+
+<div class="topnav">
+  <img class="logo" src="assets/images/logo.png" alt="logo">
+  <a href="#inventory" rel="modal:open">Inventory</a>
+  <a href="#shopping" rel="modal:open">Shopping List</a>
+  <span style="font-size:30px;cursor:pointer;float:right;margin-right:20%;margin-top:0.5%" onclick="openNav()"><i class="far fa-2x fa-user-circle"></i></span>
+</div>
+
+<div id="myNav" class="overlay">
+  <div class="overlay-content">
+    <a href="#profile" rel="modal:open">Profile</a>
+	  <a href="#help" rel="modal:open">Help</a>
+  </div>
+ </div>
+
+<img class="display" src="assets/images/d1.jpg" alt="d1">
+
+<div class="mainDiv">
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'RecommandRecipe')">Recommand Recipe</button>
+  <button class="tablinks" onclick="openCity(event, 'SavedRecipe')">Saved Recipe</button>
+</div>
+
+<div id="RecommandRecipe" class="tabcontent">
+  <h3>Recommand Recipe</h3>
+  <?php
+    buildrec($food);
+  ?>
+</div>
+
+<div id="SavedRecipe" class="tabcontent">
+  <h3>Saved Recipe</h3>
+  <p>Paris is the capital of France.</p>
+</div>
+</div>
+
+</div>
+</body>
+</html>
