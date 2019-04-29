@@ -66,18 +66,18 @@ $test = new RecipeManager();
 ///getALL Recipes
 $result = $test->CallAPI("get",$test->createRecipeAPIcall());
 //echo $result;
-$json = json_decode($result, true);
-$food = $test->APIRecipesParser($json);
-echo json_encode($food, JSON_PRETTY_PRINT);
-$test->addRecipetoSavedJSON("Gnocchi Cream Soup");
+//$json = json_decode($result, true);
+//$food = $test->APIRecipesParser($json);
+//echo json_encode($food, JSON_PRETTY_PRINT);
+//$test->addRecipetoSavedJSON("Gnocchi Cream Soup");
 
 
 //get IndividualRecipe
 $result = $test->CallAPI("get",$test->grabRecipeData(513654));
 //echo $result;
 $json = json_decode($result,true);
-//$food = $test->APIRecipeParser($json);
-//$j = json_encode($food, JSON_PRETTY_PRINT);
+$food = $test->APIRecipeParser($json);
+echo json_encode($food, JSON_PRETTY_PRINT);
 
 //
 ////?>
