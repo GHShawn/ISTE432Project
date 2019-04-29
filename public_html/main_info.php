@@ -23,8 +23,8 @@ function createcard($img, $name, $used, $missused, $id)
                         </div>
                     </div>
                     <div class="card-footer">
-                        <small>View Recipe</small>
-                        <button class="btn btn-secondary float-right btn-sm" value="'.$id.'">show</button>
+                        <button class="btn btn-secondary float-left btn-sm" value="'.$id.'">Save Recipe</button>
+                        <button class="btn btn-secondary float-right btn-sm" value="'.$id.'">View Recipe</button>
                     </div>
                 </div>
               
@@ -80,16 +80,16 @@ $json = json_decode($result,true);
 <script src="assets/js/javascript.js"></script>
 <!-- Remember to include jQuery :) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<!-- jQuery Modal -->
 <!-- bootstrap -->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
     var bsModal = $.fn.modal.noConflict();
 </script>
-<!-- jQuery Modal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
 </head>
 <body>
 
@@ -102,7 +102,7 @@ $json = json_decode($result,true);
   <p>Thanks for clicking. This is your shopping list.</p>
   <button>Add</button>
   <button>Order</button>
-    <a href="#" rel="modal:close">Close</a>
+  </br>
 </div>
 
 <div id="profile" class="modal">
@@ -133,11 +133,11 @@ $json = json_decode($result,true);
 
 <div class="mainDiv">
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'RecommandRecipe')">Recommand Recipe</button>
+  <button class="tablinks" onclick="openCity(event, 'RecommandRecipe')">Recommended Recipe</button>
   <button class="tablinks" onclick="openCity(event, 'SavedRecipe')">Saved Recipe</button>
 </div>
 
-4<div id="RecommandRecipe" class="tabcontent">
+<div id="RecommandRecipe" class="tabcontent">
   <h3>Recommended Recipe</h3>
   <div class="container">
   <?php

@@ -58,8 +58,7 @@ class IngredientManager {
         }
 
         $query2 = 'delete from shopping_list where user_id = 6';
-        $result = pg_execute($this->conn, $query2);
-
+//        $result = pg_execute($this->conn, $query2);
 
         pg_close($this->conn);
         echo $row['0'];

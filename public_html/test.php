@@ -67,7 +67,7 @@ $result = $test->CallAPI("get",$test->createRecipeAPIcall());
 //echo $result;
 $json = json_decode($result, true);
 $food = $test->APIRecipesParser($json);
-//echo json_encode($food, JSON_PRETTY_PRINT);
+echo json_encode($food, JSON_PRETTY_PRINT);
 
 
 
@@ -78,20 +78,20 @@ $json = json_decode($result,true);
 //$food = $test->APIRecipeParser($json);
 //$j = json_encode($food, JSON_PRETTY_PRINT);
 
-
-?>
-<html>
-<head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
-<body>
-<div class="container">
-    <?php
-    buildrec($food);
-    ?>
-</div>
-</body>
-</html>
-
+//
+//?>
+<!--<html>-->
+<!--<head>-->
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    --><?php
+//    buildrec($food);
+//    ?>
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!---->

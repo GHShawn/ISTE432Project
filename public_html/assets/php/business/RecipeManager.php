@@ -17,6 +17,7 @@ class RecipeManager
     private $conn = NULL;
     public static $error = NULL;
     public $foodarray = array();
+    public $savedfood = array();
 
     function __construct()
     {
@@ -94,7 +95,7 @@ class RecipeManager
             $usedingred = array();
             for ($j = 0; $j < count($output[$i]['usedIngredients']); $j++) {
                 $item = $output[$i]['usedIngredients'][$j];
-                $usedingred[$i] = array(
+                $usedingred[$j] = array(
                     "Name" => $item["name"],
                     "IngredientID" => $item["id"],
                     "Amount" => trim($item["amount"] . " " . $item["unitLong"]),
@@ -202,6 +203,7 @@ class RecipeManager
         $query = 'insert into shopping_list(username, email,pswd) values ($1, $2, $3) ';
 
         }
+
 
 }
 ?>
