@@ -80,13 +80,16 @@ $json = json_decode($result,true);
 <script src="assets/js/javascript.js"></script>
 <!-- Remember to include jQuery :) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<!-- jQuery Modal -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <!-- bootstrap -->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+    var bsModal = $.fn.modal.noConflict();
+</script>
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
 </head>
 <body>
 
@@ -99,7 +102,7 @@ $json = json_decode($result,true);
   <p>Thanks for clicking. This is your shopping list.</p>
   <button>Add</button>
   <button>Order</button>
-  </br>
+    <a href="#" rel="modal:close">Close</a>
 </div>
 
 <div id="profile" class="modal">
@@ -134,7 +137,7 @@ $json = json_decode($result,true);
   <button class="tablinks" onclick="openCity(event, 'SavedRecipe')">Saved Recipe</button>
 </div>
 
-<div id="RecommandRecipe" class="tabcontent">
+4<div id="RecommandRecipe" class="tabcontent">
   <h3>Recommended Recipe</h3>
   <div class="container">
   <?php
