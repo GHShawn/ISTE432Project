@@ -209,9 +209,10 @@ class RecipeManager
         );
         $json1 = json_encode($data);
         file_put_contents('assets/data/savedRecipes.json', $json1);
-        $test = json_decode('assets/data/savedRecipes.json', true);
+        $test = json_decode(file_get_contents('assets/data/savedRecipes.json'), true);
 
-        echo json_encode($test, JSON_PRETTY_PRINT);
+
+        return json_encode($test, JSON_PRETTY_PRINT);
 
     }
 
