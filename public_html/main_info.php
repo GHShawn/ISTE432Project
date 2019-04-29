@@ -12,36 +12,44 @@ function createcard($img, $name, $used, $missused, $id)
 {
     $div = '
         <div class="col-sm-3 col-md-3 col-lg-3 mt-4" style="float:left">
-                <div class="card" style="height: 60%">
-                    <img class="card-img-top" src="'. $img . '">
+                <div class="card" style="max-height: 60%">
+                    <img class="card-img-top" style="object-fit: cover" src="'. $img . '">
                     <div class="card-block">
                         <h6 class="card-title mt-3 center" style="padding:5%;text-align: center">' . $name . '</h6>
                         <hr>
-                        <div class="meta">
-                            <a>Used Ingredients: ' . $used .'</a>
-                            <a>Missed Ingredients: '. $missused .'</a>
+                        <div class="meta" style="text-align: center">
+                            <p style="font-size: 10px">Used Ingredients: ' . $used .'</p>
+                            <p style="font-size: 10px">Missed Ingredients: '. $missused .'</p>
                         </div>
                     </div>
-                    <div class="card-footer" style="bottom:0">
+                    <div class="card-footer">
                         <small>View Recipe</small>
                         <button class="btn btn-secondary float-right btn-sm" value="'.$id.'">show</button>
                     </div>
                 </div>
-
+              
             </div>';
+
     return $div;
 }
+
 function buildrec($output){
+    echo "<div class='row'>";
     foreach($output as $key=>$value){
         $img = $value['RecipeImage'];
         $used = $value['IngredientsUsedCount'];
         $missued = $value['MissedIngredientsCount'];
         $id = $value['RecipeID'];
         $name = $value['Title'];
+
         $div = createcard($img,$name,$used,$missued,$id);
         echo $div;
     }
+    echo "</div>";
+
+
 }
+
 $test1 = new IngredientManager();
 //
 ////$result = $test1->insertShoppingList('Smoked Salmon Scrambled Eggs');
@@ -127,10 +135,12 @@ $json = json_decode($result,true);
 </div>
 
 <div id="RecommandRecipe" class="tabcontent">
-  <h3>Recommand Recipe</h3>
+  <h3>Recommended Recipe</h3>
+  <div class="container">
   <?php
     buildrec($food);
   ?>
+  </div>
 </div>
 
 <div id="SavedRecipe" class="tabcontent">
