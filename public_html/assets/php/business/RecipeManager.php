@@ -205,11 +205,10 @@ class RecipeManager
         $json = json_decode($result, true);
         $food = $this->APIRecipesParser($json);
         $data[] = array(
-            $food
+            $name => $food[$name]
         );
         $json1 = json_encode($data);
         file_put_contents('assets/data/savedRecipes.json', $json1);
-
     }
 
 }

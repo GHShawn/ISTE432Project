@@ -186,8 +186,9 @@ $json = json_decode($result,true);
 <div id="SavedRecipe" class="tabcontent">
   <h3>Saved Recipe</h3>
     <?php
+    $data = json_decode('assets/data/savedRecipes.json', true);
 
-    buildsaved($food);
+    buildsaved($data);
     ?></div>
 </div>
 
