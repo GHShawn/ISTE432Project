@@ -6,6 +6,8 @@
     include_once(ROOT . 'business/UserManager.php');
   //  include_once (ROOT.'controler/indexControl.php');
 
+    session_start();
+
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $username = htmlentities(strip_tags(trim( $_POST["username"])));
@@ -13,6 +15,7 @@
         $conn = new UserManager();
         $user = $conn->loginUser($username,$password);
         if ($user instanceof  User) {
+            $_SESSION["user"] = $user;
             header('location: main_info.php');
             die();
         }

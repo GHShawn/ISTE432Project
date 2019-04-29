@@ -8,6 +8,8 @@
 define('ROOT','assets/php/');
 include_once(ROOT . 'business/RecipeManager.php');
 include_once(ROOT . 'business/IngredientManager.class.php');
+include_once(ROOT . 'models/User.php');
+session_start();
 function createcard($img, $name, $used, $missused, $id)
 {
     $div = '
@@ -92,7 +94,11 @@ $json = json_decode($result,true);
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 <body>
-
+<?php
+    if (isset($_SESSION["user"])) {
+        $user = $_SESSION['user'];
+    }
+?>
 <div id="inventory" class="modal">
   <p>This is your inventory.</p>
   <div>
