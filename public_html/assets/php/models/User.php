@@ -1,9 +1,9 @@
 <?php
 
  class User {
-    private $id;
-    private $email;
-    private $username;
+    public $id;
+    public $email;
+    public $username;
 
     private function __constructor() {
     }
