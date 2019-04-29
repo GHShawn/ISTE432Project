@@ -62,12 +62,38 @@ class IngredientManager {
 
         pg_close($this->conn);
         echo $row['0'];
-
     }
 
     function printInventoryTable(){
         $query = 'SELECT ingredient_id,ingredient_name FROM inventory_database';
         $result = pg_query($this->conn, $query);
+        $div = '<table class="table" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Ingredient ID</th>
+                                            <th>Ingredient Name</th>
+                                        </tr>
+                                    </thead><tbody>';
+
+        while ($row = pg_fetch_row($result)) {
+            $div .= "<tr><td>{$row[0]}</td><td>{$row[1]}</td></tr>";
+        }
+        $div .= '</tbody></table>';
+
+        return $div;
+    }
+
+    function printShoppingTable() {
+        $query = 'SELECT ingredient_id,ingredient_name FROM shopping_list';
+        $result = pg_query($this->conn, $query);
+//        $count = pg_num_rows($result);
+//        for ($i=0; $i <= count($count); $i++){
+//            $row = pg_fetch_row($result);
+//            $this->addIngredient[$i] = array(
+//                "ID" => $row[0],
+//                "Name" => $row[1]
+//            );
+//        }
         $div = '<table class="table" cellspacing="0">
                                     <thead>
                                         <tr>
