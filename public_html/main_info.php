@@ -8,15 +8,13 @@
 define('ROOT','assets/php/');
 include_once(ROOT . 'business/RecipeManager.php');
 include_once(ROOT . 'business/IngredientManager.class.php');
-include_once(ROOT . 'models/User.php');
-session_start();
 function createcard($img, $name, $used, $missused, $id)
 {
     $div = '
         <div class="col-sm-3 col-md-3 col-lg-3 mt-4" style="float:left">
-                <div class="card" style="max-height: 60%">
+                <div class="card">
                     <img class="card-img-top" style="object-fit: cover" src="'. $img . '">
-                    <div class="card-block">
+                    <div class="card-block" style="height:190px">
                         <h6 class="card-title mt-3 center" style="padding:5%;text-align: center">' . $name . '</h6>
                         <hr>
                         <div class="meta" style="text-align: center">
@@ -26,7 +24,7 @@ function createcard($img, $name, $used, $missused, $id)
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-secondary float-left btn-sm" value="'.$id.'">Save Recipe</button>
-                        <button class="btn btn-secondary float-right btn-sm" value="'.$id.'">View Recipe</button>
+                        <button id="'.$id.'" class="btn btn-secondary float-right btn-sm" value="'.$id.'" onclick="modal('.$id.')">View Recipe</button>
                     </div>
                 </div>
               
@@ -49,27 +47,10 @@ function buildrec($output){
     }
     echo "</div>";
 
-}
-
-function buildsaved($output){
-    echo "<div class='row'>";
-    foreach($output as $key=>$value){
-        $img = $value['RecipeImage'];
-        $used = $value['IngredientsUsedCount'];
-        $missued = $value['MissedIngredientsCount'];
-        $id = $value['RecipeID'];
-        $name = $value['Title'];
-
-        $div = createcard($img,$name,$used,$missued,$id);
-        echo $div;
-    }
-    echo "</div>";
 
 }
-
 
 $test1 = new IngredientManager();
-
 //
 ////$result = $test1->insertShoppingList('Smoked Salmon Scrambled Eggs');
 //$result = $test1->purchaseShoppingList();
@@ -111,34 +92,16 @@ $json = json_decode($result,true);
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 <body>
-<?php
-    if (isset($_SESSION["user"])) {
-        $user = $_SESSION['user'];
-    }
-?>
-<div id="inventory" class="modal">
-  <p>This is your inventory.</p>
-  <div>
-      <?php
-      $test1 = new IngredientManager();
-      echo $test1->printInventoryTable();
-      ?>
-  </div>
-    <a href="#" rel="modal:close">Close</a>
 
+<div id="inventory" class="modal">
+  <p>Thanks for clicking. This is your inventory.</p>
+  <a href="#" rel="modal:close">Close</a>
 </div>
 
 <div id="shopping" class="modal">
   <p>Thanks for clicking. This is your shopping list.</p>
-    <div>
-        <?php
-        $test1 = new IngredientManager();
-        echo $test1->printShoppingTable();
-        ?>
-    </div>
-    <form method="POST" action="main_info.php">
-        <input type="submit" name="action" value="Order"/>
-    </form>
+  <button>Add</button>
+  <button>Order</button>
   </br>
 </div>
 
@@ -149,6 +112,11 @@ $json = json_decode($result,true);
 
 <div id="help" class="modal">
   <p>Thanks for clicking. This is your help section.</p>
+  <a href="#" rel="modal:close">Close</a>
+</div>
+
+<div id="showRecipe" class="modal">
+  <p>Thanks for clicking. This is your recipe detail section.</p>
   <a href="#" rel="modal:close">Close</a>
 </div>
 
@@ -185,11 +153,8 @@ $json = json_decode($result,true);
 
 <div id="SavedRecipe" class="tabcontent">
   <h3>Saved Recipe</h3>
-    <?php
-    $data = json_decode('assets/data/savedRecipes.json', true);
-
-    buildsaved($data);
-    ?></div>
+  <p>Paris is the capital of France.</p>
+</div>
 </div>
 
 </div>
