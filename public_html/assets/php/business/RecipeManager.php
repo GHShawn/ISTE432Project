@@ -199,11 +199,18 @@ class RecipeManager
         return json_encode($food, JSON_PRETTY_PRINT);
     }
 
-    function addtoShoppingList($id){
-        $query = 'insert into shopping_list(username, email,pswd) values ($1, $2, $3) ';
+    function addRecipetoSavedJSON($name){
+        $data = json_decode('assets/data/savedRecipes.json', true);
+        $result = $this->CallAPI("get",$this->createRecipeAPIcall());
+        $json = json_decode($result, true);
+        $food = $this->APIRecipesParser($json);
+        $data[] = array(
+            $food
+        );
+        $json1 = json_encode($data);
+        file_put_contents('assets/data/savedRecipes.json', $json1);
 
-        }
-
+    }
 
 }
 ?>

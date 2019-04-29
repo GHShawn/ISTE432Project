@@ -69,7 +69,7 @@ $result = $test->CallAPI("get",$test->createRecipeAPIcall());
 $json = json_decode($result, true);
 $food = $test->APIRecipesParser($json);
 echo json_encode($food, JSON_PRETTY_PRINT);
-
+$test->addRecipetoSavedJSON("Gnocchi Cream Soup");
 
 
 //get IndividualRecipe

@@ -49,8 +49,24 @@ function buildrec($output){
     }
     echo "</div>";
 
+}
+
+function buildsaved($output){
+    echo "<div class='row'>";
+    foreach($output as $key=>$value){
+        $img = $value['RecipeImage'];
+        $used = $value['IngredientsUsedCount'];
+        $missued = $value['MissedIngredientsCount'];
+        $id = $value['RecipeID'];
+        $name = $value['Title'];
+
+        $div = createcard($img,$name,$used,$missued,$id);
+        echo $div;
+    }
+    echo "</div>";
 
 }
+
 
 $test1 = new IngredientManager();
 //
@@ -161,8 +177,10 @@ $json = json_decode($result,true);
 
 <div id="SavedRecipe" class="tabcontent">
   <h3>Saved Recipe</h3>
-  <p>Paris is the capital of France.</p>
-</div>
+    <?php
+
+    buildsaved($food);
+    ?></div>
 </div>
 
 </div>
