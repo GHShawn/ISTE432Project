@@ -14,6 +14,7 @@
         $user = $conn->loginUser($username,$password);
         if ($user instanceof  User) {
             header('location: main_info.php');
+            die();
         }
     }
 ?>
