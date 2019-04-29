@@ -53,6 +53,7 @@ function buildrec($output){
 }
 
 $test1 = new IngredientManager();
+
 //
 ////$result = $test1->insertShoppingList('Smoked Salmon Scrambled Eggs');
 //$result = $test1->purchaseShoppingList();
@@ -113,8 +114,15 @@ $json = json_decode($result,true);
 
 <div id="shopping" class="modal">
   <p>Thanks for clicking. This is your shopping list.</p>
-  <button>Add</button>
-  <button>Order</button>
+    <div>
+        <?php
+        $test1 = new IngredientManager();
+        echo $test1->printShoppingTable();
+        ?>
+    </div>
+    <form method="POST" action="main_info.php">
+        <input type="submit" name="action" value="Order"/>
+    </form>
   </br>
 </div>
 
