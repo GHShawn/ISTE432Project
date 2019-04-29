@@ -94,8 +94,15 @@ $json = json_decode($result,true);
 <body>
 
 <div id="inventory" class="modal">
-  <p>Thanks for clicking. This is your inventory.</p>
-  <a href="#" rel="modal:close">Close</a>
+  <p>This is your inventory.</p>
+  <div>
+      <?php
+      $test1 = new IngredientManager();
+      echo $test1->printInventoryTable();
+      ?>
+  </div>
+    <a href="#" rel="modal:close">Close</a>
+
 </div>
 
 <div id="shopping" class="modal">

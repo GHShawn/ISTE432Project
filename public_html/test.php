@@ -53,6 +53,7 @@ function buildrec($output){
 }
 
 $test1 = new IngredientManager();
+//echo $test1->printInventoryTable();
 //
 ////$result = $test1->insertShoppingList('Smoked Salmon Scrambled Eggs');
 //$result = $test1->purchaseShoppingList();
@@ -67,7 +68,7 @@ $result = $test->CallAPI("get",$test->createRecipeAPIcall());
 //echo $result;
 $json = json_decode($result, true);
 $food = $test->APIRecipesParser($json);
-echo json_encode($food, JSON_PRETTY_PRINT);
+//echo json_encode($food, JSON_PRETTY_PRINT);
 
 
 
@@ -80,18 +81,19 @@ $json = json_decode($result,true);
 
 //
 //?>
-<!--<html>-->
-<!--<head>-->
-<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
-<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
-<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div class="container">-->
-<!--    --><?php
-//    buildrec($food);
-//    ?>
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
-<!---->
+<html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <?php
+    $test1 = new IngredientManager();
+    echo $test1->printInventoryTable();
+    ?>
+</div>
+</body>
+</html>
+
