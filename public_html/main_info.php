@@ -78,7 +78,6 @@ function buildsaved($output){
 
 }
 
-
 $test1 = new IngredientManager();
 
 if (isset($_POST['action']) && $_POST['action'] == 'Order') {
@@ -128,8 +127,15 @@ $json = json_decode($result,true);
 </head>
 <body>
 <?php
+    $userId = null;
+    $userEmail = null;
+    $userName = null;
     if (isset($_SESSION["user"])) {
         $user = $_SESSION['user'];
+        $arr = $user->getSome();
+        $userId = $arr["id"];
+        $userEmail = $arr['email'];
+        $userName = $arr['username'];
     }
 ?>
 <div id="inventory" class="modal">
@@ -159,7 +165,10 @@ $json = json_decode($result,true);
 </div>
 
 <div id="profile" class="modal">
-  <p>Thanks for clicking. This is your profile.</p>
+    <p><strong>Thanks for clicking. This is your profile.</strong></p>
+    <p><STRONG>Name:</STRONG> <?php echo $userName ?></p>
+    <p><STRONG>Email: </STRONG> <?php echo $userEmail ?> </p>
+    <p><STRONG>User Id:</STRONG> <?php echo $userId ?></p>
   <a href="#" rel="modal:close">Close</a>
 </div>
 
