@@ -10,14 +10,55 @@ include_once(ROOT . 'business/RecipeManager.php');
 include_once(ROOT . 'business/IngredientManager.class.php');
 include_once(ROOT . 'models/User.php');
 session_start();
+function createDetailPage()
+{
+	$div = '<!-- Page Content -->
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">RecipeName: 
+    <small>Cheese Cake</small>
+  </h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Recipe Description</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+      <h3 class="my-3">Recipe Ingredients</h3>
+      <ul>
+        <li>Lorem Ipsum</li>
+        <li>Dolor Sit Amet</li>
+        <li>Consectetur</li>
+        <li>Adipiscing Elit</li>
+      </ul>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+  <!-- Related Projects Row -->
+  <h3 class="my-4">Recipe Instruction</h3>
+
+
+</div>
+<!-- /.container -->';
+	echo $div;
+	
+}
 function createcard($img, $name, $used, $missused, $id)
 {
     $div = '
         <div class="col-sm-3 col-md-3 col-lg-3 mt-4" style="float:left">
-                <div class="card" style="max-height: 60%">
+                <div class="card">
                     <img class="card-img-top" style="object-fit: cover" src="'. $img . '">
-                    <div class="card-block">
-                        <h6 class="card-title mt-3 center" style="padding:5%;text-align: center">' . $name . '</h6>
+                    <div class="card-block"  style="height: 190px">
+                        <h6 class="card-title mt-3 center" style="padding:5%;text-align: center;height:65px">' . $name . '</h6>
                         <hr>
                         <div class="meta" style="text-align: center">
                             <p style="font-size: 10px">Used Ingredients: ' . $used .'</p>
@@ -26,7 +67,7 @@ function createcard($img, $name, $used, $missused, $id)
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-secondary float-left btn-sm" value="'.$id.'">Save Recipe</button>
-                        <button class="btn btn-secondary float-right btn-sm" value="'.$id.'">View Recipe</button>
+                        <button class="btn btn-secondary float-right btn-sm" value="'.$id.'" onclick="modal('.$id.')">View Recipe</button>
                     </div>
                 </div>
               
@@ -119,6 +160,10 @@ $json = json_decode($result,true);
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
 <script>
     var bsModal = $.fn.modal.noConflict();
 </script>
@@ -138,6 +183,11 @@ $json = json_decode($result,true);
         $userName = $arr['username'];
     }
 ?>
+<div id="showRecipe" class="modal">
+      <?php
+      echo createDetailPage();
+      ?>
+</div>
 <div id="inventory" class="modal">
   <p>This is your inventory.</p>
   <div>
