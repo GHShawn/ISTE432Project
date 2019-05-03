@@ -25,7 +25,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Sample Login</title>
+    <title>Login</title>
     <link href="assets/css/logIn.css" rel="stylesheet">
       <script src='assets/js/index.js'></script>
 
