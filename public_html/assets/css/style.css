@@ -126,6 +126,15 @@ body{
 h3{
 	text-align: center;
 }
+#inventory{
+	height:500px;
+	overflow:scroll;
+}
+#showRecipe{
+	max-width:none;
+	height:600px;
+	overflow:scroll;
+}
 /*media query for mobile app*/
 @media screen and (max-width: 600px) {
 
