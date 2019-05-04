@@ -33,13 +33,16 @@ function createDetailPage($title,$preparation,$servings,$dishType,$instructions)
 
   </div>
   <!-- /.row -->
-
   <!-- Related Projects Row -->
-  <h3 class="my-4">Recipe Instruction</h3>
-<p>'.$instructions.'</p>
+  <h3 class="my-4">Recipe Instruction</h3>';
 
-</div>
-<!-- /.container -->';
+    $int = 0;
+    foreach($instructions as $key=>$value){
+        $int +=1;
+        $step = '<p>'.$int.'. '.$value['Instruction'].'</p>';
+        $div .=$step;
+    }
+    $div .= '</div>';
 	return $div;
 	
 }

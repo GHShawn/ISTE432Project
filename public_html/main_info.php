@@ -53,6 +53,18 @@ function buildrec($output){
     echo "</div>";
 
 }
+function buildPop($output){
+    foreach($output as $key=>$value){
+        echo $output;
+        $img = $value['RecipeImage'];
+        $used = $value['IngredientsUsedCount'];
+        $id = $value['RecipeID'];
+        $name = $value['Title'];
+        $usedIngre = $value['IngredientsUsed'];
+        $detail = $value['Detail'];
+       // createDetailPage($id,$name,$img,$used,$usedIngre,$detail);
+    }
+}
 
 function buildsaved($output){
     echo "<div class='row'>";

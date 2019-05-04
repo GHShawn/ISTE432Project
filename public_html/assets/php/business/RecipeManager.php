@@ -149,8 +149,8 @@ class RecipeManager
         for ($i = 0; $i < count($output); $i++) {
             for ($j = 0; $j < count($output[$i]['cuisines']);$j++) {
                 $item = $output[$i]['cuisines'][$j];
-                $cuisines .= $item + ",";
-                $cuisines = substr($cuisines, 0, -1);
+                $cuisines .= $item.",";
+                $cuisines .= substr($cuisines, 0, -1);
             }
             for ($j = 0; $j < count($output[$i]['analyzedInstructions'][0]['steps']); $j++){
                 $ingredients = array();
