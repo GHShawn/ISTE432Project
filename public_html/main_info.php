@@ -66,8 +66,8 @@ function createcard($img, $name, $used, $missused, $id)
                         </div>
                     </div>
                     <div class="card-footer">
-					<form action="#" method="post">
-						 <button class="btn btn-secondary float-right btn-sm" name="submit" value="'.$id.'" onclick="modal('.$id.')" type="submit">View Recipe</button>
+					<form>
+						 <button class="btn btn-secondary float-right btn-sm" name="submit" value="'.$id.'" onclick="modal('.$id.')">View Recipe</button>
 
 					</form>
                         <button class="btn btn-secondary float-left btn-sm" value="'.$id.'" type="submit">Save Recipe</button>
