@@ -23,7 +23,8 @@ There are __public_html__ directory in repository
 4. If home directory is empty, you can place on home directory
 5. If your home directory is not empty, create an directory for hosted
 6. Drop and drag all sources from public_html dirctory to your host dirtory(remember the path)
-7. Done
+7. Set permissions to file (assets/data/savedRecipes.json) to be 777 or 755
+8. Done
 
 ### Running the tests
 __You can test this project on your host__ 
