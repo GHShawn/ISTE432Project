@@ -10,47 +10,7 @@ include_once(ROOT . 'business/RecipeManager.php');
 include_once(ROOT . 'business/IngredientManager.class.php');
 include_once(ROOT . 'models/User.php');
 session_start();
-function createDetailPage()
-{
-	$div = '<!-- Page Content -->
-<div class="container">
 
-  <!-- Portfolio Item Heading -->
-  <h1 class="my-4">RecipeName: 
-    <small>Cheese Cake</small>
-  </h1>
-
-  <!-- Portfolio Item Row -->
-  <div class="row">
-
-    <div class="col-md-8">
-      <img class="img-fluid" src="http://placehold.it/750x500" alt="">
-    </div>
-
-    <div class="col-md-4">
-      <h3 class="my-3">Recipe Description</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-      <h3 class="my-3">Recipe Ingredients</h3>
-      <ul>
-        <li>Lorem Ipsum</li>
-        <li>Dolor Sit Amet</li>
-        <li>Consectetur</li>
-        <li>Adipiscing Elit</li>
-      </ul>
-    </div>
-
-  </div>
-  <!-- /.row -->
-
-  <!-- Related Projects Row -->
-  <h3 class="my-4">Recipe Instruction</h3>
-
-
-</div>
-<!-- /.container -->';
-	echo $div;
-	
-}
 function createcard($img, $name, $used, $missused, $id)
 {
     $div = '
@@ -66,9 +26,8 @@ function createcard($img, $name, $used, $missused, $id)
                         </div>
                     </div>
                     <div class="card-footer">
-					<form>
-						 <button class="btn btn-secondary float-right btn-sm" name="submit" value="'.$id.'" onclick="modal('.$id.')">View Recipe</button>
-
+					<form action="action_page.php" method="post">
+						 <button class="btn btn-secondary float-right btn-sm" name="submit" value="'.$id.'"">View Recipe</button>
 					</form>
                         <button class="btn btn-secondary float-left btn-sm" value="'.$id.'" type="submit">Save Recipe</button>
                     </div>
@@ -186,12 +145,7 @@ $json = json_decode($result,true);
         $userName = $arr['username'];
     }
 ?>
-<div id="showRecipe" class="modal">
-      <?php
-	  echo $_POST["submit"];
-      echo createDetailPage();
-      ?>
-</div>
+
 <div id="inventory" class="modal">
   <p>This is your inventory.</p>
   <div>
