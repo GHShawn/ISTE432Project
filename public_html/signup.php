@@ -47,7 +47,7 @@
     <input type = "password" name = "re-signup-password" id='2ndpassword' class="form-control" placeholder="Confirm password" value="" required />
     <span><?php if (isset($error)) echo $error; ?></span>
     <button class="form-control" name="register" type="submit">Sign up</button>
-    <a id='switchLogin' onclick="switchLogin();">Switch LOGIN</a>
+    <a id='switchLogin' href="index.php">Switch LOGIN</a>
 </form>
 </body>
 </html>
